@@ -10,6 +10,9 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      defaultImage: 'https://res.viewlayer.cn/puzzle/components/1f58fbe741501917fdb1374d24da8b48.png',
+      userinfo:{},
+    }
   }
 })

@@ -5,3 +5,29 @@
   align-items: center;
   box-sizing: border-box;
 } 
+
+/**app.wxss**/
+
+button {
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+    line-height: none;
+    border-radius: 0px;
+    border: none;
+    background-color: #fff;
+  }
+  
+  button::after {
+    border: none;
+  }
+  
+  image{
+      width: auto;
+      height: auto;
+  }
+
+  
+  

@@ -1,0 +1,28 @@
+<view class="wrapper" hover-class="none" hover-stop-propagation="false">
+    <view class="title">
+        我的队伍 <text>JJR</text>
+    </view>
+    <view class="team-list">
+        <view class="team-item" wx:for="{{team_lists}}">
+            <image src="{{defaultImage}}"></image>
+        </view>
+        <view class="other-item" wx:for="{{ max_team - team_lists.length}}">
+            <image src="https://res.viewlayer.cn/puzzle/components/8051d8753c052efbe639b7a410445ab0.svg"></image>
+        </view>
+    </view>
+
+    <view class="match" >
+         <view class="title">比赛 </view>
+         <view class="match-list" >
+             <view class="item">
+                <view class="team-title">老板</view>
+                <view class="team-member" wx:for="{{team_lists}}">
+                    <image src="{{defaultImage}}"></image>
+                </view>
+                <view class="join-match">
+                    加入比赛
+                </view>
+             </view>
+         </view>
+    </view>
+</view>

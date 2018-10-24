@@ -110,3 +110,5 @@ class DbHelper {
     return games.doc(gameId).update({ data: { ended: Date.now() } })
   }
 }
+
+module.exports = DbHelper;

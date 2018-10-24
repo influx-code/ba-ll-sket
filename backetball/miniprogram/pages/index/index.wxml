@@ -1,4 +1,4 @@
-<view>
+<view class="wrapper">
     <view class="head" hover-class="none" hover-stop-propagation="false">
         <button
       open-type="getUserInfo" 
@@ -7,20 +7,36 @@
     </button>
         <view class='nickname'>{{userinfo.nickName ? userinfo.nickName : '点击头像登陆' }}</view>
     </view>
-    <view class="content">
-        <i-grid i-class="grid">
-            <i-grid-item i-class="grid-item">
-                <i-grid-label>我的战绩</i-grid-label>
-            </i-grid-item>
-            <i-grid-item i-class="grid-item">
-                <i-grid-label>我的队伍</i-grid-label>
-            </i-grid-item>
-        </i-grid>
-        <i-grid i-class="grid">
-            <i-grid-item i-class="grid-item">
-                <i-grid-label>我的比赛</i-grid-label>
-            </i-grid-item>
-        </i-grid>
-    
+     <view class="my-Legend">
+        <view class="item">
+            <view>场均得分</view>
+            <text>4.3</text>
+        </view>
+        <view class="item">
+            <view>获胜</view>
+            <text>10</text>
+        </view>
+        <view class="item">
+            <view>失败</view>
+            <text>2</text>
+        </view>
     </view>
+
+    <view class="match" >
+         <view class="title">队伍</view>
+         <view class="match-list" >
+             <view class="item" wx:for="21" wx:key="">
+                <view class="team-title">老板</view>
+                <view class="team-member" wx:for="{{team_lists}}">
+                    <image src="{{defaultImage}}"></image>
+                </view>
+                <view class="join-match">
+                    加入队伍
+                </view>
+             </view>
+         </view>
+    </view>
+
+
+    <button class="launch-match">新建队伍</button>
 </view>

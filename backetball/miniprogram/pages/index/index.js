@@ -10,6 +10,7 @@ Page({
     userinfo: app.globalData.userinfo,
     defaultImage: app.globalData.defaultImage,
     team_lists: ['1','2'],
+    is_myteam: false,
   },
 
   /**
@@ -47,13 +48,9 @@ Page({
   },
 
   onNewTeam: function(){
-    app.globalData.DbHelper.newTeam(app.globalData.openid).then(res=>{
-        if(res.errMsg == 'collection.add:ok'){
-            wx.navigateTo({
-                url: '../team/index'
-            })
-        }
-    });
+    this.setData({
+        is_myteam: true,
+    })
   }
   
 })

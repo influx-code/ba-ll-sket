@@ -22,21 +22,53 @@
         </view>
     </view>
 
-    <view class="match" >
+   <scroll-view>
+       <view class="match" wx:if="{{is_myteam}}">
+         <view class="title">我的队伍</view>
+            <view class="match-list" >
+                <view class="item" >
+                    <view class="team-title">；啦啦啦啦啦啦</view>
+                    <view class="team-member">
+                        <image src="{{userinfo.avatarUrl ? userinfo.avatarUrl : defaultImage}}"></image>
+                    </view>
+                    <button class="join-match" open-type="share" hover-class="none">
+                        邀请加入
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="match" wx:else>
          <view class="title">队伍</view>
+            <view class="match-list" >
+                <view class="item" wx:for="21" wx:key="">
+                    <view class="team-title">老板</view>
+                    <view class="team-member" wx:for="{{team_lists}}">
+                        <image src="{{defaultImage}}"></image>
+                    </view>
+                    <button class="join-match" hover-class="none">
+                        加入队伍
+                    </button>
+                </view>
+            </view>
+        </view>
+    
+    <view class="match" >
+         <view class="title">比赛 </view>
          <view class="match-list" >
              <view class="item" wx:for="21" wx:key="">
                 <view class="team-title">老板</view>
                 <view class="team-member" wx:for="{{team_lists}}">
                     <image src="{{defaultImage}}"></image>
                 </view>
-                <view class="join-match">
-                    加入队伍
-                </view>
+                <button class="join-match" bindtap="gotoMatch" hover-class="none">
+                    加入比赛
+                </button>
              </view>
          </view>
     </view>
+   </scroll-view>
 
 
-    <button class="launch-match" bindtap="onNewTeam">新建队伍</button>
+
+    <button class="launch-match" bindtap="onNewTeam">新增队伍</button>
 </view>

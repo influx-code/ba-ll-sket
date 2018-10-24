@@ -7,89 +7,106 @@ const games = db.collection('games')
 const _ = db.command
 
 class DbHelper {
-  async addUser(data) {
-    return await users.add({ data })
+  addUser(data) {
+    return users.add({ data })
   }
 
-  async newTeam(leaderId) {
-    return await teams.add({ data: { leaderId, created: Date.now() } })
+  newTeam(leaderId) {
+    return teams.add({ data: { leaderId, created: Date.now() } })
   }
 
-  async listTeams() {
-    return await teams.get()
+  listTeams() {
+    return teams.get()
   }
 
-  async joinTeam(teamId, memberId) {
-    return await teams.doc(teamId).update({
+  joinTeam(teamId, memberId) {
+    return teams.doc(teamId).update({
       data: {
         members: _.push(memberId)
       }
     })
   }
 
-  async leaveTeam(teamId, memberId) {
-    const doc = await teams.doc(teamId).get()
-    const members = []
-    for (let m of doc.members) {
-      if (m != memberId) {
-        members.push(m)
-      }
-    }
+  leaveTeam(teamId, memberId) {
+    teams.doc(teamId).get().then(doc => {
 
-    return await teams.doc(teamId).update({
-      data: {
-        members
-      }
-    })
-  }
-
-  async newGame(teamId) {
-    const doc = await teams.doc(teamId).get()
-    const game = await games.add({
-      data: {
-        hostTeam: {
-          id: teamId,
-          name: 'JJR',
-          members: doc.members,
-          score: 0
-        },
-        created: Date.now()
-      }
-    })
-  }
-
-  async listGames() {
-    return await games.get()
-  }
-
-  async joinGame(gameId, teamId) {
-    const doc = await teams.doc(teamId).get()
-    return await games.doc(gameId).update({
-      data: {
-        guestTeam: {
-          id: teamId,
-          name: 'ZRC',
-          members: doc.members,
-          score: 0
+      const members = []
+      for (let m of doc.members) {
+        if (m != memberId) {
+          members.push(m)
         }
       }
+
+      teams.doc(teamId).update({
+        data: {
+          members
+        }
+      })
     })
   }
 
-  async plusOneScore(gameId, teamId, userId) {
-    const game = await games.doc(gameId).get()
-    const data = { hostTeam: {}, guestTeam: {} }
-    if (game.hostTeam.id == teamId) {
-      data.hostTeam[userId] = _.inc(1)
-    }
-    else {
-      data.guestTeam[userId] = _.inc(1)
-    }
-
-    return await games.doc(gameId).update({ data })
+  newGame(teamId) {
+    return new Promise((resovle, reject) => {
+      teams.doc(teamId).get().then(doc => {
+        games.add({
+          data: {
+            hostTeam: {
+              id: teamId,
+              name: 'JJR',
+              members: doc.members,
+              score: 0
+            },
+            created: Date.now()
+          }
+        }).then(doc => {
+          resovle(doc)
+        }).catch(err => {
+          reject(err)
+        })
+      })
+    })
   }
 
-  async endGame(gameId) {
-    return await games.doc(gameId).update({ data: { ended: Date.now() } })
+  listGames() {
+    return games.get()
+  }
+
+  joinGame(gameId, teamId) {
+    return new Promise((resolve, reject) => {
+      teams.doc(teamId).get().then(doc => {
+        games.doc(gameId).update({
+          data: {
+            guestTeam: {
+              id: teamId,
+              name: 'ZRC',
+              members: doc.members,
+              score: 0
+            }
+          }
+        }).then(resolve).catch(reject)
+      })
+    })
+  }
+
+  plusOneScore(gameId, teamId, userId) {
+    return new Promise((resolve, reject) => {
+
+      games.doc(gameId).get().then(game => {
+        const data = { hostTeam: {}, guestTeam: {} }
+        if (game.hostTeam.id == teamId) {
+          data.hostTeam[userId] = _.inc(1)
+        }
+        else {
+          data.guestTeam[userId] = _.inc(1)
+        }
+
+        games.doc(gameId).update({ data }).then(resolve).catch(reject)
+      })
+    })
+
+  }
+
+  endGame(gameId) {
+    return games.doc(gameId).update({ data: { ended: Date.now() } })
   }
 }

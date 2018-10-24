@@ -25,20 +25,23 @@ class DbHelper {
     })
   }
 
-  leaveTeam(teamId, memberId) {
-    teams.doc(teamId).get().then(doc => {
+  leaveTeam(teamId, userId) {
+    return new Promise((resolve, reject) => {
+      teams.doc(teamId).get().then(doc => {
 
-      const members = []
-      for (let m of doc.members) {
-        if (m != memberId) {
-          members.push(m)
+        if (doc.leaderId == userId) {
+          teams.doc(teamId).remove().then(resolve).catch(reject)
+          return
         }
-      }
 
-      teams.doc(teamId).update({
-        data: {
-          members
+        const members = []
+        for (let m of doc.members) {
+          if (m != userId) {
+            members.push(m)
+          }
         }
+
+        teams.doc(teamId).update({ data: { members } }).then(resolve).catch(reject)
       })
     })
   }
@@ -56,11 +59,7 @@ class DbHelper {
             },
             created: Date.now()
           }
-        }).then(doc => {
-          resovle(doc)
-        }).catch(err => {
-          reject(err)
-        })
+        }).then(resovle).catch(reject)
       })
     })
   }

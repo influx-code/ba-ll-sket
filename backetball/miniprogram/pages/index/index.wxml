@@ -38,5 +38,5 @@
     </view>
 
 
-    <button class="launch-match">新建队伍</button>
+    <button class="launch-match" bindtap="onNewTeam">新建队伍</button>
 </view>

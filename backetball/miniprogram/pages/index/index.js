@@ -39,15 +39,21 @@ Page({
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
-        userInfo: e.detail.userInfo
+        userinfo: e.detail.userInfo
       })
       app.globalData.userinfo =  e.detail.userInfo;
+      app.globalData.DbHelper.addUser(e.detail.userInfo)
     }
   },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
+  onNewTeam: function(){
+    app.globalData.DbHelper.newTeam(app.globalData.openid).then(res=>{
+        if(res.errMsg == 'collection.add:ok'){
+            wx.navigateTo({
+                url: '../team/index'
+            })
+        }
+    });
   }
+  
 })

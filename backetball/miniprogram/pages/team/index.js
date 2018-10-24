@@ -8,7 +8,7 @@ Page({
   data: {
     defaultImage: app.globalData.defaultImage,
     max_team: 3,
-    team_lists: ['1','2']
+    team_lists: []
   },
 
   /**
@@ -17,6 +17,12 @@ Page({
   onLoad: function (options) {
 
   },
+
+  ons: function(){
+    this.setData({
+        team_lists: ''
+    })
+  }
 
   
 })

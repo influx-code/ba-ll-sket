@@ -38,15 +38,104 @@
     -ms-transform: translateX(-50%) ;
     -o-transform: translateX(-50%) ;
 }
-.content{
-    padding: 0 20rpx;
+
+.my-Legend{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30rpx;
 }
-.grid{
+.my-Legend .item{
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 2;
+}
+
+  .match-list .item .team-member image{
     width: 100%;
-    min-height: 200rpx;
-    border: none !important;
+    height: 100%;
+    
+  }
+
+  .match-list{
+      padding: 20rpx;
+  }
+  .match-list .item{
+    position: relative;  
+    overflow: hidden;
+  }
+  .match-list .item .team-title{
+    font-size: 28rpx;
+    padding: 10rpx 0;
+    position: relative;
+    margin-bottom: 10rpx;
+  }
+  .match-list .item .team-title:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 300rpx);
+    left: 0;
+    border: 1rpx solid #E2DEDE;
+    background: #E2DEDE;
+  }
+
+  .match-list .item .team-member{
+    width: 92rpx;
+    height:92rpx;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-right: 20rpx;
+  }
+
+
+  .match-list .join-match{
+      position: absolute;
+      border: 1rpx solid #ccc;
+      border-radius: 10rpx  ;
+      -webkit-border-radius: 10rpx  ;
+      -moz-border-radius: 10rpx  ;
+      -ms-border-radius: 10rpx  ;
+      -o-border-radius: 10rpx  ;
+      right: 30rpx;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      padding: 10rpx 25rpx;
+      font-size: 26rpx;
+      margin-top: 30rpx;
 }
-.grid-item{
-    height: 60rpx;
-    border: none !important;
+
+.launch-match{
+    width: 300rpx;
+    height: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1rpx solid #E2DEDE;
+    border-radius: 15rpx;
+    -webkit-border-radius: 15rpx;
+    -moz-border-radius: 15rpx;
+    -ms-border-radius: 15rpx;
+    -o-border-radius: 15rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    position: fixed;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }

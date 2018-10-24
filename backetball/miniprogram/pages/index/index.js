@@ -9,6 +9,7 @@ Page({
     logged: false,
     userinfo: app.globalData.userinfo,
     defaultImage: app.globalData.defaultImage,
+    team_lists: ['1','2'],
   },
 
   /**

@@ -1,5 +1,3 @@
-wx.cloud.init({ env: 'test-123' })
-
 const db = wx.cloud.database()
 const users = db.collection('users')
 const teams = db.collection('teams')

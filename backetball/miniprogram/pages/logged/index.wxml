@@ -1,2 +1,17 @@
-<!--miniprogram/pages/logged/index.wxml-->
-<text>miniprogram/pages/logged/index.wxml</text>
+<view class="wrapper">
+    <view class="title">
+         历史战绩   
+    </view>
+    <view class="card-list">
+        <view class="card" wx:for="12" wx:key=""> 
+            <view class="date">2018/06/09</view>
+            <i-card wx:for="12">
+                <view slot="content" class="content">
+                    <view class="time">9:00PM</view>
+                    <view class="team">JJR / RRj</view>
+                    <view class="score">4:6</view>
+                </view>
+            </i-card>
+        </view>
+    </view>
+</view>

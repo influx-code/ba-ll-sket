@@ -1,2 +1,43 @@
-<!--miniprogram/pages/match/index.wxml-->
-<text>miniprogram/pages/match/index.wxml</text>
+<view class="page">
+    <view class="team-score-card">
+        <view class="item-left item">
+            <view class="team-name">JJE</view>
+            <view class="team-score">5</view>
+        </view>
+        <view class="dount">:</view>
+        <view class="item-right item">
+            <view class="team-score">5</view>
+            <view class="team-name">JJE</view>
+        </view>
+    </view>
+
+    <view class="team">
+        <view class="team-left">
+        <view class="team-member {{transition == '1' ? 'transition-width' : ''}}"  bindtap="onChooseMember">
+            <image src="{{defaultImage}}"></image>
+        </view>
+        <view class="team-member">
+            <image src="{{defaultImage}}"></image>
+        </view>
+        <view class="team-member">
+            <image src="{{defaultImage}}"></image>
+        </view>  
+    </view>
+    <view class="team-right">
+        <view class="team-member">
+            <image src="{{defaultImage}}"></image>
+        </view>
+        <view class="team-member">
+            <image src="{{defaultImage}}"></image>
+        </view>
+        <view class="team-member">
+            <image src="{{defaultImage}}"></image>
+        </view>  
+    </view>
+    </view>
+
+
+    <view class="add">
+        +1分
+    </view>
+</view>

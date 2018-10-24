@@ -3,7 +3,7 @@
         我的队伍 <text>JJR</text>
     </view>
     <view class="team-list">
-        <view class="team-item" wx:for="{{team_lists}}">
+        <view class="team-item" wx:for="{{team_lists}}" wx:key="">
             <image src="{{defaultImage}}"></image>
         </view>
         <view class="other-item" wx:for="{{ max_team - team_lists.length}}">
@@ -14,7 +14,7 @@
     <view class="match" >
          <view class="title">比赛 </view>
          <view class="match-list" >
-             <view class="item">
+             <view class="item" wx:for="21" wx:key="">
                 <view class="team-title">老板</view>
                 <view class="team-member" wx:for="{{team_lists}}">
                     <image src="{{defaultImage}}"></image>
@@ -25,4 +25,7 @@
              </view>
          </view>
     </view>
+
+
+    <button class="launch-match">发起比赛</button>
 </view>

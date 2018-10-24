@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -39,7 +39,19 @@
 				{
 					"id": -1,
 					"name": "team",
-					"pathName": "pages/team/index"
+					"pathName": "pages/team/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "logged",
+					"pathName": "pages/logged/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "match",
+					"pathName": "pages/match/index"
 				}
 			]
 		}

@@ -1,1 +1,31 @@
-/* miniprogram/pages/logged/index.wxss */
+.wrapper{
+    height: 100%;
+    padding: 20rpx 40rpx;
+}
+.card-list{
+    margin: 10rpx 0 30rpx; 
+}
+.card{
+    margin-bottom: 30rpx;
+}
+.card .date{
+    padding-left: 32rpx;
+    font-size: 26rpx;
+    color: #ccc;
+    margin-bottom: 10rpx;
+}
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content .time,
+.card .date{
+    font-size: 24rpx;
+    color: #ccc;
+}
+.content .score{
+    font-size: 44rpx;
+}

@@ -29,5 +29,10 @@ button {
       height: auto;
   }
 
+  .wrapper{
+    height: 100%;
+    padding: 20rpx 40rpx;
+}
+
   
   

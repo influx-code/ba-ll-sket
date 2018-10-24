@@ -50,6 +50,22 @@
     position: relative;  
     overflow: hidden;
   }
+  .match-list .item .team-title{
+    font-size: 28rpx;
+    padding: 10rpx 0;
+    position: relative;
+    margin-bottom: 10rpx;
+  }
+  .match-list .item .team-title:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 300rpx);
+    left: 0;
+    border: 1rpx solid #E2DEDE;
+    background: #E2DEDE;
+  }
+
   .match-list .item .team-member{
     width: 92rpx;
     height:92rpx;
@@ -83,5 +99,30 @@
       -ms-transform: translateY(-50%);
       -o-transform: translateY(-50%);
       padding: 10rpx 25rpx;
-      font-size: 30rpx;
+      font-size: 26rpx;
+      margin-top: 30rpx;
+}
+
+.launch-match{
+    width: 300rpx;
+    height: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1rpx solid #E2DEDE;
+    border-radius: 15rpx;
+    -webkit-border-radius: 15rpx;
+    -moz-border-radius: 15rpx;
+    -ms-border-radius: 15rpx;
+    -o-border-radius: 15rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    position: fixed;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }

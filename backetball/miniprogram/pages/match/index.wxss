@@ -1,1 +1,136 @@
-/* miniprogram/pages/match/index.wxss */
+page{
+    height: 100%;
+}
+
+.page{
+    height: calc(100% - 100rpx);
+}
+
+
+.team-score-card{
+    position: relative;
+    height: 200rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 60rpx;
+}
+
+.team-score-card .item{
+    display: flex;
+    width: 200rpx;
+    justify-content: space-around;
+    position: relative;
+    display:flex;
+    align-items:center;
+
+}
+.team-score-card .dount{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+
+}
+
+.team-score-card .item-right{
+    position: absolute;
+    right: 60rpx;
+}
+.team-score-card .team-score{
+    font-size: 66rpx;
+}
+
+.team{
+    width: 100%;
+    overflow: hidden;
+    height: calc(100% - 400rpx);
+}
+
+.team-left,
+.team-right{
+    width: 150rpx;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100%;
+}
+.team-left{
+    float: left;
+}
+.team-left .team-member,
+.team-right .team-member{
+    height: 101rpx;
+    width: 100%;
+    background: #5cadff;
+    margin-bottom: 30rpx;
+    position: relative;
+    overflow: hidden;
+}
+.team-left .team-member{
+    border-radius: 0 80rpx 80rpx 0;
+    -webkit-border-radius: 0 80rpx 80rpx 0;
+    -moz-border-radius: 0 80rpx 80rpx 0;
+    -ms-border-radius: 0 80rpx 80rpx 0;
+    -o-border-radius: 0 80rpx 80rpx 0;
+}
+.team-left .team-member image,
+.team-right .team-member image{
+    width: 92rpx;
+    height: 92rpx;
+    border-radius: 50%    ;
+    -webkit-border-radius: 50%    ;
+    -moz-border-radius: 50%    ;
+    -ms-border-radius: 50%    ;
+    -o-border-radius: 50%    ;
+    border: 4rpx solid #fff;
+}
+.team-left .team-member image{
+    float: right;
+    margin-left: -20rpx;
+}
+.team-right{
+    float: right;
+}
+
+.team-right .team-member{
+    border-radius: 92rpx 0 0 92rpx;
+    -webkit-border-radius: 92rpx 0 0 92rpx;
+    -moz-border-radius: 92rpx 0 0 92rpx;
+    -ms-border-radius: 92rpx 0 0 92rpx;
+    -o-border-radius: 92rpx 0 0 92rpx;
+}
+.team-right .team-member image{
+    float: left;
+    margin-right: -20rpx;
+}
+
+.team-member.transition-width{
+    transition: width 1s ;
+    width: 300rpx;
+    -webkit-transition: width 1s ;
+    -moz-transition: width 1s ;
+    -ms-transition: width 1s ;
+    -o-transition: width 1s ;
+}
+
+.add{
+    width: 300rpx;
+    height: 100rpx;
+    border-radius: 20rpx;
+    border: 1rpx solid #5cadff;
+    position: fixed;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
